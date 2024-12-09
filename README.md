@@ -81,3 +81,25 @@ The final result is a dataframe with 234428 rows and 25 columns.
 | 412 broccoli casserole               | 306168 |        40 |         6 |        5 |          194.8 |                20 |             6 |             32 |              22 |                    36 |                     3 | Low Calories    |
 
 # Univariate Analysis
+For my univariate analysis, I wanted to see the distribution of calories to get a better understanding
+of the values within the column. From the visualization, we can see that the distribution is skewed right 
+and that most of the calories fall within the 250 - 750 range.
+
+<iframe
+  src="assets/dist-calories.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+# Bivariate Analysis
+For my bivariate analysis, I wanted to see what proportion of high caloric recipes and low caloric recipes were
+in each rating. From the visualization, we can see that the proportion of high caloric recipes in the 1 - 3 rating 
+range are slightly greater than low caloric recipes.
+
+<iframe
+  src="assets/calories-rating.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
