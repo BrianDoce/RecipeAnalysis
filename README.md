@@ -140,6 +140,34 @@ I ran a permutation test by shuffling the calories 500 times and each time I col
 I calculated an observed statistic of 68.98 and a p-value of 0.0, which is less than the level of significance of 
 0.05. This means that we reject the null hypothesis and it suggests that the missingness of rating does depend on calories.
 
+# Hypothesis Testing
+I conducted my hypothesis testing based on whether people rated high caloric recipes (greater than or equal to 500 calories) higher than low caloric recipes.
+
+Null Hypothesis: The rating of high caloric recipes and low caloric recipes have the same distribution.
+
+Alternate Hypothesis: The rating of high caloric recipes food is greater than the rating of low caloric recipes.
+
+Test Statistic: Difference in mean rating between high caloric and low caloric recipes
+
+Level of Significance: 0.05
+
+When conducting the hypothesis test, I used a permutation test because I wanted to see if the ratings of high caloric recipes and low caloric recipes were rated the same. I thought that the high caloric recipes would result in
+higher ratings because they have more flexibility in the amount of items they can put in their recipes, which would 
+make the recipes more flavorful or people might rate desserts (which are high in calories) higher.
+
+To perform my hypothesis test, I shuffled the rating 500 times and calculated the difference in the average rating 
+of high caloric recipes and low caloric recipes each time. I then calculated the observed difference, which was 
+-0.017. This tells me that high caloric recipes in my sample were rated lower than low caloric recipes. When I 
+found the p_value, the value was 1.0. This causes us to fail to reject the null hypothesis.
+
+<iframe
+  src="../assets/highcalories-test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
 
 
 
