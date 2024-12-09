@@ -70,6 +70,7 @@ For data cleaning, I did the following steps:
     Low Calories if they weren't.
 
 The final result is a dataframe with 234428 rows and 25 columns.
+(Note: the following visualization is a portion of the columns)
 
 | name                                 |     id |   minutes |   n_steps |   rating |   calories (#) |   total fat (PDV) |   sugar (PDV) |   sodium (PDV) |   protein (PDV) |   saturated fat (PDV) |   carbohydrates (PDV) | calories_type   |
 |:-------------------------------------|-------:|----------:|----------:|---------:|---------------:|------------------:|--------------:|---------------:|----------------:|----------------------:|----------------------:|:----------------|
