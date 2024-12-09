@@ -78,7 +78,7 @@ of the values within the column. From the visualization, we can see that the dis
 and that most of the calories fall within the 250 - 750 range.
 
 <iframe
-  src="../assets/dist-calories.html"
+  src="assets/dist-calories.html"
   width="800"
   height="600"
   frameborder="0"
@@ -90,7 +90,7 @@ in each rating. From the visualization, we can see that the proportion of high c
 range are slightly greater than low caloric recipes.
 
 <iframe
-  src="../assets/calories-rating.html"
+  src="assets/calories-rating.html"
   width="800"
   height="600"
   frameborder="0"
@@ -127,7 +127,7 @@ Level of Signficance: 0.05
 I ran a permutation test by shuffling the calories 500 times and each time I collected the absolute difference in the average calories of the groups: missing ratings and not missing ratings.
 
 <iframe
-  src="../assets/calories-missing.html"
+  src="assets/calories-missing.html"
   width="800"
   height="600"
   frameborder="0"
@@ -155,7 +155,7 @@ of low caloric recipes and high caloric recipes each time. I then calculated the
 0.017. This tells me that low caloric recipes in my sample were rated slightly higher than high caloric recipes. When I found the p_value, the value was 0.0. This causes us to reject the null hypothesis.
 
 <iframe
-  src="../assets/highcalories-test.html"
+  src="assets/highcalories-test.html"
   width="800"
   height="600"
   frameborder="0"
@@ -176,6 +176,54 @@ At the time of the prediction, we wouldn't have access to the nutritional values
 information about the recipe such as the number of steps, minutes take to prepare, etc.
 
 # Baseline Model
+For my baseline model, I used a linear regression model that uses three features: is_dessert (nominal), is_dietary (nominal), and minutes (quantitative). is_dessert and is_dietary are both nominal columns extracted from the tags column, which consists of 
+True and False values. For my model I used one hot encoding for these columns and used the standardized version 
+of minutes.
+
+For testing of my model, I split my sample into training and testing sets. With this method, I calculated a 
+root mean squared error of 586 for my training set and 568 for my testing set. I believe this model is terrible 
+because for each recipe, its prediction is more than 500 calories away.
+
+# Final Model
+For my final model, I added several columns: average_rating, is_vegetarian, n_ingredients, and meal_time
+
+## n_ingredients
+I added n_ingredients because as I was doing bivariate analysis, I grouped n_ingredients and aggregated on calories and saw that at some point as the number of steps increased, the median calories was consistently high. I thought 
+that this could be useful to predict calories.
+
+## is_vegetarian
+For this column I extracted if recipes had vegetarian within its tags. Recipes were given the values True or False, which I then one hot encoded. I believed that this feature would improve my model because recipes labeled with vegetarian should have lower calories compared to ones that aren't.
+
+## meal_time
+For this column I extracted if the tags had breakfast, dinner, etc. within it and made it into a column so I could
+use one hot encoding within it. I believed this feature would improve 
+
+The modeling algorithm I chose was Lasso with hyperparameters of alpha = 100 and fit_intercept = True as it performed slightly better on the testing set. To find the best hyperparameters, I used GridSearchCV with a 
+5-fold cross-validation to find the best alpha and fit_intercept parameters.
+
+## Results
+My final model performed slightly better than my baseline model with my final model having a root mean squared error 
+of 558.74 on the testing set compared to my baseline model's root mean squared error of 565.26. My final thoughts about my model was that it was extremely difficult trying to improve my linear regression model to predict 
+calories. I believe that a linear regression model was too simple to predict calories, which led to high bias and 
+high root mean squared error.
+
+# Fairness Analysis
+For my fairness analysis, I wanted to evaluate my model's root mean squared error parity. To do this, I wanted to 
+see if it predicted both high caloric recipes and low caloric recipes the same. 
+
+Null Hypothesis: The model is fair. Its RMSE for high caloric recipes and low caloric recipes are roughly the same.
+
+Alternative Hypothesis: The model is unfair. Its RMSE for high caloric recipes is not the same for low caloric recipes.
+
+Test Statistic: The absolute difference in Root mean Squared Error for the two groups
+
+Significance Level: 0.05 
+
+p-value:
+
+Conclusion: 
+
+
 
 
 
