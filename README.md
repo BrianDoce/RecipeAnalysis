@@ -82,7 +82,7 @@ of the values within the column. From the visualization, we can see that the dis
 and that most of the calories fall within the 250 - 750 range.
 
 <iframe
-  src="/assets/dist-calories.html"
+  src="../assets/dist-calories.html"
   width="800"
   height="600"
   frameborder="0"
@@ -94,7 +94,7 @@ in each rating. From the visualization, we can see that the proportion of high c
 range are slightly greater than low caloric recipes.
 
 <iframe
-  src="/assets/calories-rating.html"
+  src="../assets/calories-rating.html"
   width="800"
   height="600"
   frameborder="0"
@@ -120,7 +120,7 @@ to the value itself as people who experience positive or negative feelings with 
 write a review.
 
 ## Missingness Dependency
-I first wanted to see if the missingness of ratings depended on calories 
+I wanted to see if the missingness of ratings depended on calories 
 
 Null Hypothesis: The missingness of rating does not depend on calories.
 
@@ -131,7 +131,7 @@ Level of Signficance: 0.05
 I ran a permutation test by shuffling the calories 500 times and each time I collected the absolute difference in the average calories of the groups: missing ratings and not missing ratings.
 
 <iframe
-  src="/assets/calories-missing.html"
+  src="../assets/calories-missing.html"
   width="800"
   height="600"
   frameborder="0"
