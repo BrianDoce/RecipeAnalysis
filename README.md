@@ -103,3 +103,16 @@ range are slightly greater than low caloric recipes.
   height="600"
   frameborder="0"
 ></iframe>
+
+# Interesting Aggregates
+For my aggregates, I decided to group by rating and get the median, max, and standard deviation for calories.
+This allows me to see what type of values of calories each rating consists of. I chose not to include mean because 
+I noticed that the max calories of each rating would not make mean a good indicator of the central value.
+
+|   ('rating', '') |   ('calories (#)', 'median') |   ('calories (#)', 'max') |   ('calories (#)', 'std') |
+|-----------------:|-----------------------------:|--------------------------:|--------------------------:|
+|                1 |                        316   |                   17551.6 |                   757.481 |
+|                2 |                        326.3 |                    7585   |                   526.058 |
+|                3 |                        309.6 |                   13101.5 |                   547.385 |
+|                4 |                        302   |                   16894.9 |                   487.187 |
+|                5 |                        298.2 |                   45609   |                   580.018 |
