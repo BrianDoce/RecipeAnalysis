@@ -5,11 +5,7 @@ Author: Brian Docena
 
 # Introduction
 When it comes to losing weight, the main thought that goes through peoples' minds are going months or years eating
-bland food. This is the main obstacle that holds people back from reaching their goals as they believe that
-finding recipes that are low calories and delicious are impossible. This is what drove my project to see 
-the relationship between calories and ratings as I wanted to see if there was any validity to the idea that 
-healthy food can't taste good. For this I used data from Food.com, an online recipe platform where users can submit their recipes, 
- with nutritional information, user ratings, and reviews. Recipes is a subset of data from this website, which 
+bland, tasteless food. This is the main obstacle that holds people back from reaching their goals as they consume food that they absolutely dread. This problem is what interested me into finding the relationship between calories and ratings as I wanted to see if there was any validity to the idea that healthy food can't taste good. For this I used data from Food.com, an online recipe platform where users can submit their recipes, with its nutritional information, user ratings, and reviews. Recipes is a subset of data from this website, which 
 contains 83782 rows and the following columns:
 
 
@@ -86,7 +82,7 @@ of the values within the column. From the visualization, we can see that the dis
 and that most of the calories fall within the 250 - 750 range.
 
 <iframe
-  src="assets/dist-calories.html"
+  src="/assets/dist-calories.html"
   width="800"
   height="600"
   frameborder="0"
@@ -98,7 +94,7 @@ in each rating. From the visualization, we can see that the proportion of high c
 range are slightly greater than low caloric recipes.
 
 <iframe
-  src="assets/calories-rating.html"
+  src="/assets/calories-rating.html"
   width="800"
   height="600"
   frameborder="0"
@@ -116,3 +112,39 @@ I noticed that the max calories of each rating would not make mean a good indica
 |                3 |                        309.6 |                   13101.5 |                   547.385 |
 |                4 |                        302   |                   16894.9 |                   487.187 |
 |                5 |                        298.2 |                   45609   |                   580.018 |
+
+# Assessment of Missingness
+## NMAR Analysis
+In my dataframe, the three columns that have a significant amount of missing values are description, rating, and review. I believe that the missingness of review is NMAR because the probability of the data being missing is tied 
+to the value itself as people who experience positive or negative feelings with the recipe are more likely to 
+write a review.
+
+## Missingness Dependency
+I first wanted to see if the missingness of ratings depended on calories 
+
+Null Hypothesis: The missingness of rating does not depend on calories.
+
+Alternate Hypothesis: The missingness of rating does depend on calories.
+
+Level of Signficance: 0.05
+
+I ran a permutation test by shuffling the calories 500 times and each time I collected the absolute difference in the average calories of the groups: missing ratings and not missing ratings.
+
+<iframe
+  src="/assets/calories-missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+I calculated an observed statistic of 68.98 and a p-value of 0.0, which is less than the level of significance of 
+0.05. This means that we reject the null hypothesis and it suggests that the missingness of rating does depend on calories.
+
+
+
+
+
+
+
+
+
