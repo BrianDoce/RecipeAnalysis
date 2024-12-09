@@ -35,10 +35,7 @@ Interactions is another subset of the data containing 731927 rows and the follow
 | 'review' | Date text |
 
 Given these datasets, I wanted to break down the information in the nutrition column into separate columns because
-I wanted to predict calories given the nutrition values. I also added another column called calories_type, which
-grouped recipes into either one of two groups: High Calories (if calories were greater than or equal to 500) 
-or Low Calories (if calories were less than 500). The most significant columns were calories (#) and rating. Along
-with all the values in nutrition information for predicting amount of calories a recipe would have.
+I felt that the information within it had potential to extract other useful insights. I also added another column called calories_type, which grouped recipes into either one of two groups: High Calories (if calories were greater than or equal to 500) or Low Calories (if calories were less than 500). The most significant columns were calories (#) and rating. Along with values such as n_steps, minutes, etc.
 
 # Data Cleaning and Exploration
 For data cleaning, I did the following steps:
@@ -52,8 +49,7 @@ For data cleaning, I did the following steps:
 3. Added column 'average_rating'.
 
 4. Broke the nutrition column down into a column for each of its values (calories (#), total fat (PDV), etc.)
-    - I broke the column down into separate columns because I believed that the numerical values it held would be important
-    for analysis.
+    - I broke the column down into separate columns because I believed that the numerical values it held would be important for analysis.
 
 5. Dropped nutrition column
     - I didn't think it was necessary after breaking it down.
@@ -141,24 +137,22 @@ I calculated an observed statistic of 68.98 and a p-value of 0.0, which is less 
 0.05. This means that we reject the null hypothesis and it suggests that the missingness of rating does depend on calories.
 
 # Hypothesis Testing
-I conducted my hypothesis testing based on whether people rated high caloric recipes (greater than or equal to 500 calories) higher than low caloric recipes.
+I conducted my hypothesis testing based on whether people rated low caloric recipes (recipes less than 500 calories) higher than high caloric recipes.
 
 Null Hypothesis: The rating of high caloric recipes and low caloric recipes have the same distribution.
 
-Alternate Hypothesis: The rating of high caloric recipes food is greater than the rating of low caloric recipes.
+Alternate Hypothesis: The rating of low caloric recipes are greater than the rating of high caloric recipes.
 
-Test Statistic: Difference in mean rating between high caloric and low caloric recipes
+Test Statistic: Difference in mean rating between low caloric and high caloric recipes
 
 Level of Significance: 0.05
 
-When conducting the hypothesis test, I used a permutation test because I wanted to see if the ratings of high caloric recipes and low caloric recipes were rated the same. I thought that the high caloric recipes would result in
-higher ratings because they have more flexibility in the amount of items they can put in their recipes, which would 
-make the recipes more flavorful or people might rate desserts (which are high in calories) higher.
+When conducting the hypothesis test, I used a permutation test because I wanted to see if the ratings of high caloric recipes and low caloric recipes were rated the same. I was curious on whether low caloric recipes would 
+receive a higher average rating than high caloric recipes.
 
 To perform my hypothesis test, I shuffled the rating 500 times and calculated the difference in the average rating 
-of high caloric recipes and low caloric recipes each time. I then calculated the observed difference, which was 
--0.017. This tells me that high caloric recipes in my sample were rated lower than low caloric recipes. When I 
-found the p_value, the value was 1.0. This causes us to fail to reject the null hypothesis.
+of low caloric recipes and high caloric recipes each time. I then calculated the observed difference, which was 
+0.017. This tells me that low caloric recipes in my sample were rated slightly higher than high caloric recipes. When I found the p_value, the value was 0.0. This causes us to reject the null hypothesis.
 
 <iframe
   src="../assets/highcalories-test.html"
@@ -166,6 +160,23 @@ found the p_value, the value was 1.0. This causes us to fail to reject the null 
   height="600"
   frameborder="0"
 ></iframe>
+
+
+# Framing a Prediction Problem
+For my prediction problem, I wanted to use regression to predict the amount of calories a recipe would have.
+I chose to predict the amount of calories because calories are essential for people who have certain dietary needs 
+or personal fitness goals they want to achieve.
+
+Since I planned on using regression, I chose to use root mean squared error to evaluate my model because I thought 
+it was more interpretable in the context of my problem as I can tell the average error my predicted calories was 
+to the actual calories. My other option was using R^2^, but I felt like knowing the quality of my prediction line 
+wasn't as meaningful.
+
+At the time of the prediction, we wouldn't have access to the nutritional values. We would only have access to 
+information about the recipe such as the number of steps, minutes take to prepare, etc.
+
+# Baseline Model
+
 
 
 
