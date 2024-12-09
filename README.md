@@ -219,11 +219,16 @@ Test Statistic: The absolute difference in Root mean Squared Error for the two g
 
 Significance Level: 0.05 
 
-p-value:
+p-value: 0.00
 
-Conclusion: 
+Conclusion: For my fairness analysis, I observed a p value of 0.00, which causes me to reject the null hypothesis.
 
-
+<iframe
+  src="assets/fairness-dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
