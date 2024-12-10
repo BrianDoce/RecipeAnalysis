@@ -122,6 +122,8 @@ Null Hypothesis: The missingness of rating does not depend on calories.
 
 Alternate Hypothesis: The missingness of rating does depend on calories.
 
+Test Statistic: Absolute difference of average calories
+
 Level of Signficance: 0.05
 
 I ran a permutation test by shuffling the calories 500 times and each time I collected the absolute difference in the average calories of the groups: missing ratings and not missing ratings.
@@ -141,7 +143,7 @@ I conducted my hypothesis testing based on whether people rated low caloric reci
 
 Null Hypothesis: The rating of high caloric recipes and low caloric recipes have the same distribution.
 
-Alternate Hypothesis: The rating of low caloric recipes are greater than the rating of high caloric recipes.
+Alternate Hypothesis: The rating of low caloric recipes is greater than the rating of high caloric recipes.
 
 Test Statistic: Difference in mean rating between low caloric and high caloric recipes
 
